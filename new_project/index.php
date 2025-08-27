@@ -28,7 +28,7 @@ require_once('connection.php');
 // foreach($sql as $values){
 //     echo $values['CustomerName']."<br>";
 // }
-$stmt = $connect->query("select * from user_table");
+$stmt = $connect->query("select * from user_table order by user_id DESC ");
 ?>
 
 <!DOCTYPE html>
@@ -41,6 +41,7 @@ $stmt = $connect->query("select * from user_table");
 <body>
     <table>
         <tr>
+            <th>user_id</th>
             <th>first_name</th>
             <th>last_name</th>
             <th>email</th>
@@ -49,6 +50,7 @@ $stmt = $connect->query("select * from user_table");
         </tr>
         <?php foreach($stmt as $values): ?>
         <tr>
+            <td><?php echo $values['user_id'] ?></td>
             <td><?php echo $values['first_name'] ?></td>
             <td><?php echo $values['last_name'] ?></td>
             <td><?php echo $values['email'] ?></td>
